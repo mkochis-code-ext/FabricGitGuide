@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" width="1100" height="600">
+  <defs>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; }
+      .title { font-size: 17px; font-weight: bold; fill: #1a1a2e; }
+      .label { font-size: 12px; fill: #333; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .small { font-size: 10px; fill: #666; }
+      .white-text { font-size: 11px; fill: #fff; font-weight: bold; }
+      .item { font-size: 10px; fill: #444; }
+    </style>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0078D4" />
+    </marker>
+    <marker id="ar-ind" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3949AB" />
+    </marker>
+    <clipPath id="clip-all"><rect x="0" y="0" width="1100" height="600"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip-all)">
+  <rect x="0" y="0" width="1100" height="600" rx="12" fill="#f9fafb" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="550" y="35" text-anchor="middle" class="title">Data vs. Visualization Workspace Relationships</text>
+
+  <!-- DATA WORKSPACE 1: Epic - shared -->
+  <rect x="60" y="55" width="360" height="165" rx="10" fill="#E3F2FD" stroke="#0078D4" stroke-width="2"/>
+  <rect x="60" y="55" width="360" height="30" rx="10" fill="#0078D4"/>
+  <rect x="60" y="78" width="360" height="7" fill="#0078D4"/>
+  <text x="240" y="76" text-anchor="middle" class="white-text" style="font-size:12px;">Epic - shared - {env} - workspace</text>
+  <text x="240" y="106" text-anchor="middle" class="label-bold" style="fill:#0078D4">Data &amp; Connections</text>
+
+  <rect x="85" y="118" width="130" height="23" rx="5" fill="#fff" stroke="#90CAF9" stroke-width="1"/>
+  <text x="91" y="134" class="item">⛁  Lakehouses</text>
+  <rect x="85" y="146" width="130" height="23" rx="5" fill="#fff" stroke="#90CAF9" stroke-width="1"/>
+  <text x="91" y="162" class="item">⚙  Pipelines</text>
+  <rect x="85" y="174" width="130" height="23" rx="5" fill="#fff" stroke="#90CAF9" stroke-width="1"/>
+  <text x="91" y="190" class="item">⇄  Dataflows Gen2</text>
+
+  <rect x="265" y="118" width="130" height="23" rx="5" fill="#fff" stroke="#90CAF9" stroke-width="1"/>
+  <text x="271" y="134" class="item">✒  Notebooks</text>
+  <rect x="265" y="146" width="130" height="23" rx="5" fill="#fff" stroke="#90CAF9" stroke-width="1"/>
+  <text x="271" y="162" class="item">⚡ Spark Jobs</text>
+  <rect x="265" y="174" width="130" height="23" rx="5" fill="#fff" stroke="#90CAF9" stroke-width="1"/>
+  <text x="271" y="190" class="item">↔  Connections</text>
+
+  <!-- DATA WORKSPACE 2: SQL - Shared -->
+  <rect x="440" y="55" width="360" height="165" rx="10" fill="#E8EAF6" stroke="#3949AB" stroke-width="2"/>
+  <rect x="440" y="55" width="360" height="30" rx="10" fill="#3949AB"/>
+  <rect x="440" y="78" width="360" height="7" fill="#3949AB"/>
+  <text x="620" y="76" text-anchor="middle" class="white-text" style="font-size:12px;">SQL - Shared - {env} - workspace</text>
+  <text x="620" y="106" text-anchor="middle" class="label-bold" style="fill:#3949AB">Data &amp; Connections</text>
+
+  <rect x="465" y="118" width="140" height="23" rx="5" fill="#fff" stroke="#9FA8DA" stroke-width="1"/>
+  <text x="471" y="134" class="item">❖  SQL Databases</text>
+  <rect x="465" y="146" width="140" height="23" rx="5" fill="#fff" stroke="#9FA8DA" stroke-width="1"/>
+  <text x="471" y="162" class="item">↔  Connections</text>
+  <rect x="465" y="174" width="140" height="23" rx="5" fill="#fff" stroke="#9FA8DA" stroke-width="1"/>
+  <text x="471" y="190" class="item">⚙  Pipelines</text>
+
+  <rect x="635" y="118" width="140" height="23" rx="5" fill="#fff" stroke="#9FA8DA" stroke-width="1"/>
+  <text x="641" y="134" class="item">⛁  Warehouses</text>
+  <rect x="635" y="146" width="140" height="23" rx="5" fill="#fff" stroke="#9FA8DA" stroke-width="1"/>
+  <text x="641" y="162" class="item">✒  Stored Procs</text>
+  <rect x="635" y="174" width="140" height="23" rx="5" fill="#fff" stroke="#9FA8DA" stroke-width="1"/>
+  <text x="641" y="190" class="item">⇄  Mirrored DBs</text>
+
+  <!-- CONSOLIDATED WORKSPACE (no links) -->
+  <rect x="820" y="55" width="250" height="300" rx="10" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+  <rect x="820" y="55" width="250" height="30" rx="10" fill="#F9A825"/>
+  <rect x="820" y="78" width="250" height="7" fill="#F9A825"/>
+  <text x="945" y="76" text-anchor="middle" class="white-text" style="font-size:12px;">Consolidated - {env} - workspace</text>
+  <text x="945" y="106" text-anchor="middle" class="label-bold" style="fill:#E65100">Data + Visualization</text>
+
+  <rect x="840" y="118" width="100" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="846" y="134" class="item">⛁  Lakehouses</text>
+  <rect x="840" y="146" width="100" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="846" y="162" class="item">⚙  Pipelines</text>
+  <rect x="840" y="174" width="100" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="846" y="190" class="item">⇄  Dataflows Gen2</text>
+  <rect x="840" y="202" width="100" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="846" y="218" class="item">✒  Notebooks</text>
+
+  <rect x="950" y="118" width="110" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="956" y="134" class="item">❖  SQL Databases</text>
+  <rect x="950" y="146" width="110" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="956" y="162" class="item">⛁  Warehouses</text>
+  <rect x="950" y="174" width="110" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="956" y="190" class="item">✒  Stored Procs</text>
+  <rect x="950" y="202" width="110" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="956" y="218" class="item">⇄  Mirrored DBs</text>
+
+  <line x1="840" y1="240" x2="1060" y2="240" stroke="#FFD54F" stroke-width="1"/>
+  <text x="945" y="258" text-anchor="middle" class="label-bold" style="fill:#E65100; font-size:11px;">Visualization</text>
+
+  <rect x="840" y="268" width="100" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="846" y="284" class="item">⬢  Reports</text>
+  <rect x="950" y="268" width="110" height="23" rx="5" fill="#fff" stroke="#FFD54F" stroke-width="1"/>
+  <text x="956" y="284" class="item">▣  Semantic Models</text>
+
+  <text x="945" y="320" text-anchor="middle" class="small" style="font-size:9px; fill:#E65100;">Self-contained — no cross-workspace links</text>
+  <text x="945" y="335" text-anchor="middle" class="small" style="font-size:9px; fill:#E65100;">All data and reports live together</text>
+
+  <!-- 1:Many badges -->
+  <rect x="170" y="242" width="140" height="26" rx="13" fill="#0078D4"/>
+  <text x="240" y="260" text-anchor="middle" class="white-text">1 : Many</text>
+
+  <rect x="550" y="242" width="140" height="26" rx="13" fill="#3949AB"/>
+  <text x="620" y="260" text-anchor="middle" class="white-text">1 : 1</text>
+
+  <!-- Arrows from Epic-shared -->
+  <line x1="240" y1="268" x2="175" y2="360" stroke="#0078D4" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="240" y1="268" x2="430" y2="360" stroke="#0078D4" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="240" y1="268" x2="685" y2="360" stroke="#0078D4" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <!-- Arrows from SQL-shared (dashed) -->
+  <line x1="620" y1="268" x2="685" y2="360" stroke="#3949AB" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#ar-ind)"/>
+
+  <!-- VIZ 1: Blood Utilization -->
+  <rect x="60" y="365" width="230" height="110" rx="10" fill="#FFF3E0" stroke="#E8590C" stroke-width="2"/>
+  <rect x="60" y="365" width="230" height="28" rx="10" fill="#E8590C"/>
+  <rect x="60" y="387" width="230" height="6" fill="#E8590C"/>
+  <text x="175" y="385" text-anchor="middle" class="white-text" style="font-size:11px;">Blood Utilization - {env}</text>
+  <text x="175" y="410" text-anchor="middle" class="label-bold" style="fill:#E8590C; font-size:11px;">Visualization Workspace</text>
+  <rect x="75" y="422" width="85" height="20" rx="5" fill="#fff" stroke="#FFCC80" stroke-width="1"/>
+  <text x="81" y="436" class="item">⬢  Reports</text>
+  <rect x="170" y="422" width="105" height="20" rx="5" fill="#fff" stroke="#FFCC80" stroke-width="1"/>
+  <text x="176" y="436" class="item">▣  Semantic Models</text>
+  <text x="175" y="464" text-anchor="middle" class="small" style="font-size:9px;">Consumes: Epic - shared</text>
+
+  <!-- VIZ 2: OR Scheduling -->
+  <rect x="315" y="365" width="230" height="110" rx="10" fill="#F3E5F5" stroke="#7B2D8E" stroke-width="2"/>
+  <rect x="315" y="365" width="230" height="28" rx="10" fill="#7B2D8E"/>
+  <rect x="315" y="387" width="230" height="6" fill="#7B2D8E"/>
+  <text x="430" y="385" text-anchor="middle" class="white-text" style="font-size:11px;">OR Scheduling - {env}</text>
+  <text x="430" y="410" text-anchor="middle" class="label-bold" style="fill:#7B2D8E; font-size:11px;">Visualization Workspace</text>
+  <rect x="330" y="422" width="85" height="20" rx="5" fill="#fff" stroke="#CE93D8" stroke-width="1"/>
+  <text x="336" y="436" class="item">⬢  Reports</text>
+  <rect x="425" y="422" width="105" height="20" rx="5" fill="#fff" stroke="#CE93D8" stroke-width="1"/>
+  <text x="431" y="436" class="item">▣  Semantic Models</text>
+  <text x="430" y="464" text-anchor="middle" class="small" style="font-size:9px;">Consumes: Epic - shared</text>
+
+  <!-- VIZ 3: Other Report -->
+  <rect x="570" y="365" width="230" height="110" rx="10" fill="#E8F5E9" stroke="#107C10" stroke-width="2"/>
+  <rect x="570" y="365" width="230" height="28" rx="10" fill="#107C10"/>
+  <rect x="570" y="387" width="230" height="6" fill="#107C10"/>
+  <text x="685" y="385" text-anchor="middle" class="white-text" style="font-size:11px;">Other Report - {env}</text>
+  <text x="685" y="410" text-anchor="middle" class="label-bold" style="fill:#107C10; font-size:11px;">Visualization Workspace</text>
+  <rect x="585" y="422" width="85" height="20" rx="5" fill="#fff" stroke="#A5D6A7" stroke-width="1"/>
+  <text x="591" y="436" class="item">⬢  Reports</text>
+  <rect x="680" y="422" width="105" height="20" rx="5" fill="#fff" stroke="#A5D6A7" stroke-width="1"/>
+  <text x="686" y="436" class="item">▣  Semantic Models</text>
+  <text x="685" y="464" text-anchor="middle" class="small" style="font-size:9px;">Consumes: Epic - shared, SQL - Shared</text>
+
+  <!-- Legend -->
+  <rect x="60" y="500" width="520" height="55" rx="8" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <text x="80" y="520" class="label-bold" style="font-size:11px;">Legend:</text>
+  <line x1="140" y1="517" x2="178" y2="517" stroke="#0078D4" stroke-width="3"/>
+  <text x="183" y="521" class="small">Epic - shared data flow</text>
+  <line x1="330" y1="517" x2="368" y2="517" stroke="#3949AB" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="373" y="521" class="small">SQL - Shared data flow</text>
+  <text x="80" y="543" class="small" style="font-size:9px;">Visualization workspaces consume data from one or both shared data workspaces (1:1 or many:1 relationship)</text>
+
+  </g>
+</svg>

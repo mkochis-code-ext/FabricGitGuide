@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" width="1200" height="860">
+  <defs>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; }
+      .title { font-size: 18px; font-weight: bold; fill: #1a1a2e; }
+      .section-title { font-size: 15px; font-weight: bold; fill: #fff; }
+      .label { font-size: 13px; fill: #333; }
+      .label-bold { font-size: 13px; fill: #333; font-weight: bold; }
+      .small { font-size: 11px; fill: #666; }
+      .white-text { font-size: 12px; fill: #fff; font-weight: bold; }
+      .callout-box { font-size: 10px; fill: #fff; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0078D4" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E8590C" />
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c62828" />
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F9A825" />
+    </marker>
+    <clipPath id="clip-all"><rect x="0" y="0" width="1200" height="860"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#clip-all)">
+  <rect x="0" y="0" width="1200" height="860" rx="12" fill="#f9fafb" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="600" y="35" text-anchor="middle" class="title">Single-Item Branch Workflow by Repo Pattern</text>
+
+  <!-- ===================== MULTI-REPO SECTION ===================== -->
+  <rect x="30" y="55" width="1140" height="480" rx="10" fill="#EBF3FB" stroke="#0078D4" stroke-width="2"/>
+  <rect x="30" y="55" width="1140" height="36" rx="10" fill="#0078D4"/>
+  <rect x="30" y="81" width="1140" height="10" fill="#0078D4"/>
+  <text x="600" y="79" text-anchor="middle" class="section-title">Multi-Repo Feature (1:Many or 1:1)  —  Data repo first, then Visualization repo</text>
+
+  <!-- DATA REPO LANE -->
+  <text x="190" y="130" text-anchor="middle" class="label-bold" style="fill:#0078D4; font-size:12px;">epic-shared-repo  /  sql-shared-repo</text>
+  <text x="190" y="146" text-anchor="middle" class="small" style="font-style:italic;">Data repository</text>
+
+  <!-- Data main branch line -->
+  <line x1="240" y1="195" x2="1120" y2="195" stroke="#0078D4" stroke-width="4"/>
+  <text x="215" y="200" text-anchor="end" class="label-bold" fill="#0078D4">main</text>
+
+  <!-- Data commits on main -->
+  <circle cx="290" cy="195" r="10" fill="#0078D4" stroke="#fff" stroke-width="2"/>
+  <text x="290" y="175" text-anchor="middle" class="small">C1</text>
+  <circle cx="640" cy="195" r="12" fill="#0078D4" stroke="#fff" stroke-width="3"/>
+  <text x="640" y="172" text-anchor="middle" class="small" style="font-weight:bold">C2 (PR #1 merged)</text>
+
+  <!-- Data feature branch -->
+  <line x1="290" y1="195" x2="325" y2="265" stroke="#0078D4" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="325" y1="265" x2="580" y2="265" stroke="#0078D4" stroke-width="3"/>
+  <circle cx="380" cy="265" r="7" fill="#0078D4" stroke="#fff" stroke-width="2"/>
+  <circle cx="460" cy="265" r="7" fill="#0078D4" stroke="#fff" stroke-width="2"/>
+  <circle cx="540" cy="265" r="7" fill="#0078D4" stroke="#fff" stroke-width="2"/>
+  <line x1="580" y1="265" x2="640" y2="195" stroke="#0078D4" stroke-width="3" stroke-dasharray="6,3"/>
+
+  <text x="215" y="265" text-anchor="end" class="label" fill="#0078D4" style="font-size:11px">feature/</text>
+  <text x="215" y="280" text-anchor="end" class="label" fill="#0078D4" style="font-size:11px">add-blood-</text>
+  <text x="215" y="295" text-anchor="end" class="label" fill="#0078D4" style="font-size:11px">type-data</text>
+
+  <rect x="550" y="225" width="90" height="22" rx="5" fill="#0078D4"/>
+  <text x="595" y="241" text-anchor="middle" class="callout-box" style="font-size:11px">PR #1  Merge</text>
+
+  <rect x="345" y="293" width="270" height="22" rx="4" fill="#fff" stroke="#0078D4" stroke-width="1"/>
+  <text x="480" y="308" text-anchor="middle" class="small" style="fill:#0078D4; font-size:10px;">① Implement data changes — additive only</text>
+
+  <!-- Yellow callout: don't break -->
+  <rect x="700" y="225" width="270" height="62" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+  <text x="835" y="245" text-anchor="middle" class="small" style="fill:#E65100; font-size:11px; font-weight:bold;">⚠ Avoid breaking changes</text>
+  <text x="835" y="262" text-anchor="middle" class="small" style="fill:#E65100; font-size:10px;">Add new fields / tables — don't rename or</text>
+  <text x="835" y="277" text-anchor="middle" class="small" style="fill:#E65100; font-size:10px;">remove until all viz consumers are updated</text>
+
+  <!-- TIMING / SEQUENCING INDICATORS (not a merge!) -->
+  <!-- Subtle vertical timing guide (gray dashed) at the data merge point -->
+  <line x1="640" y1="210" x2="640" y2="470" stroke="#999" stroke-width="1.2" stroke-dasharray="3,4"/>
+  <text x="648" y="330" class="small" style="fill:#888; font-size:9px;">data merge point</text>
+
+  <!-- VIZ REPO LANE -->
+  <text x="190" y="345" text-anchor="middle" class="label-bold" style="fill:#E8590C; font-size:12px;">blood-utilization-repo</text>
+  <text x="190" y="361" text-anchor="middle" class="small" style="font-style:italic;">Visualization repository</text>
+
+  <!-- Viz main branch line -->
+  <line x1="240" y1="410" x2="1120" y2="410" stroke="#E8590C" stroke-width="4"/>
+  <text x="215" y="415" text-anchor="end" class="label-bold" fill="#E8590C">main</text>
+
+  <!-- Viz commits on main -->
+  <circle cx="290" cy="410" r="10" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <text x="290" y="390" text-anchor="middle" class="small">C1</text>
+  <circle cx="1020" cy="410" r="12" fill="#E8590C" stroke="#fff" stroke-width="3"/>
+  <text x="1020" y="387" text-anchor="middle" class="small" style="font-weight:bold">C2 (PR #2 merged)</text>
+
+  <!-- Viz feature branch (created in parallel with data branch) -->
+  <line x1="290" y1="410" x2="325" y2="480" stroke="#E8590C" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="325" y1="480" x2="960" y2="480" stroke="#E8590C" stroke-width="3"/>
+  <circle cx="400" cy="480" r="7" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <circle cx="500" cy="480" r="7" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <circle cx="600" cy="480" r="7" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <!-- Marker showing viz pulls main after data merge -->
+  <circle cx="700" cy="480" r="7" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <circle cx="800" cy="480" r="7" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <circle cx="890" cy="480" r="7" fill="#E8590C" stroke="#fff" stroke-width="2"/>
+  <line x1="960" y1="480" x2="1020" y2="410" stroke="#E8590C" stroke-width="3" stroke-dasharray="6,3"/>
+
+  <text x="215" y="478" text-anchor="end" class="label" fill="#E8590C" style="font-size:11px">feature/</text>
+  <text x="215" y="493" text-anchor="end" class="label" fill="#E8590C" style="font-size:11px">add-blood-</text>
+  <text x="215" y="508" text-anchor="end" class="label" fill="#E8590C" style="font-size:11px">type-filter</text>
+
+  <rect x="930" y="440" width="90" height="22" rx="5" fill="#E8590C"/>
+  <text x="975" y="456" text-anchor="middle" class="callout-box" style="font-size:11px">PR #2  Merge</text>
+
+  <rect x="775" y="508" width="220" height="22" rx="4" fill="#fff" stroke="#E8590C" stroke-width="1"/>
+  <text x="885" y="523" text-anchor="middle" class="small" style="fill:#E8590C; font-size:10px;">② Consume new data in reports</text>
+
+  <!-- ===================== CONSOLIDATED SECTION ===================== -->
+  <rect x="30" y="555" width="1140" height="280" rx="10" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+  <rect x="30" y="555" width="1140" height="36" rx="10" fill="#F9A825"/>
+  <rect x="30" y="581" width="1140" height="10" fill="#F9A825"/>
+  <text x="600" y="579" text-anchor="middle" class="section-title">Consolidated Repo Feature  —  Single branch, single PR</text>
+
+  <!-- Consolidated repo label -->
+  <text x="190" y="625" text-anchor="middle" class="label-bold" style="fill:#E65100; font-size:12px;">consolidated-repo</text>
+  <text x="190" y="641" text-anchor="middle" class="small" style="font-style:italic;">Data + Visualization in one repo</text>
+
+  <!-- Consolidated main branch line -->
+  <line x1="240" y1="690" x2="1120" y2="690" stroke="#F9A825" stroke-width="4"/>
+  <text x="215" y="695" text-anchor="end" class="label-bold" fill="#E65100">main</text>
+
+  <!-- Consolidated commits on main -->
+  <circle cx="290" cy="690" r="10" fill="#F9A825" stroke="#fff" stroke-width="2"/>
+  <text x="290" y="670" text-anchor="middle" class="small">C1</text>
+  <circle cx="1020" cy="690" r="12" fill="#F9A825" stroke="#fff" stroke-width="3"/>
+  <text x="1020" y="667" text-anchor="middle" class="small" style="font-weight:bold">C2 (PR  merged)</text>
+
+  <!-- Consolidated feature branch -->
+  <line x1="290" y1="690" x2="325" y2="760" stroke="#F9A825" stroke-width="3" stroke-dasharray="6,3"/>
+  <line x1="325" y1="760" x2="960" y2="760" stroke="#F9A825" stroke-width="3"/>
+  <circle cx="400" cy="760" r="7" fill="#F9A825" stroke="#fff" stroke-width="2"/>
+  <circle cx="520" cy="760" r="7" fill="#F9A825" stroke="#fff" stroke-width="2"/>
+  <circle cx="640" cy="760" r="7" fill="#F9A825" stroke="#fff" stroke-width="2"/>
+  <circle cx="760" cy="760" r="7" fill="#F9A825" stroke="#fff" stroke-width="2"/>
+  <circle cx="880" cy="760" r="7" fill="#F9A825" stroke="#fff" stroke-width="2"/>
+  <line x1="960" y1="760" x2="1020" y2="690" stroke="#F9A825" stroke-width="3" stroke-dasharray="6,3"/>
+
+  <text x="215" y="755" text-anchor="end" class="label" fill="#E65100" style="font-size:11px">feature/</text>
+  <text x="215" y="770" text-anchor="end" class="label" fill="#E65100" style="font-size:11px">add-blood-</text>
+  <text x="215" y="785" text-anchor="end" class="label" fill="#E65100" style="font-size:11px">type-feature</text>
+
+  <rect x="930" y="720" width="90" height="22" rx="5" fill="#F9A825"/>
+  <text x="975" y="736" text-anchor="middle" class="callout-box" style="font-size:11px">PR  Merge</text>
+
+  <rect x="345" y="788" width="320" height="22" rx="4" fill="#fff" stroke="#F9A825" stroke-width="1"/>
+  <text x="505" y="803" text-anchor="middle" class="small" style="fill:#E65100; font-size:10px;">Implement data + viz changes together (atomic)</text>
+
+  <!-- Green callout: no coordination needed -->
+  <rect x="700" y="610" width="430" height="62" rx="8" fill="#E8F5E9" stroke="#107C10" stroke-width="1.5"/>
+  <text x="915" y="630" text-anchor="middle" class="small" style="fill:#107C10; font-size:11px; font-weight:bold;"> No cross-repo coordination required</text>
+  <text x="915" y="647" text-anchor="middle" class="small" style="fill:#107C10; font-size:10px;">Single feature branch, single PR — data and visualization</text>
+  <text x="915" y="662" text-anchor="middle" class="small" style="fill:#107C10; font-size:10px;">changes ship as one atomic unit. Breaking changes are safe.</text>
+
+  </g>
+</svg>

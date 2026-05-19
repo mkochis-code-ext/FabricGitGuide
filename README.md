@@ -8,7 +8,7 @@
 
 This repository is a practical, end-to-end guide for teams adopting a Git-based feature branch workflow with Microsoft Fabric and Azure DevOps. It explains core Git concepts, walks through the day-to-day developer workflow (feature branches, pull requests, code review, and merging to main), and then shows how those practices map onto Fabric's workspace Git integration and Deployment Pipelines for promoting changes through Dev, Test, and Prod.
 
-It is intended for data engineers, analytics engineers, BI developers, and platform owners who need a shared reference for how source control, CI/CD, and Fabric workspace management fit together — covering repository and workspace architecture, supported Fabric item types, role and permission requirements, network and authentication considerations, and recommended patterns for coordinating changes across shared data workspaces and downstream visualization workspaces.
+It is intended for data engineers, analytics engineers, BI developers, and platform owners who need a shared reference for how source control, CI/CD, and Fabric workspace management fit together - covering repository and workspace architecture, supported Fabric item types, role and permission requirements, network and authentication considerations, and recommended patterns for coordinating changes across shared data workspaces and downstream visualization workspaces.
 
 ---
 
@@ -70,7 +70,7 @@ This practice ensures that:
 
 ## Section 3: Day-to-Day Git Workflow - Detailed Steps
 
-### 3.1 Starting New Work (Creating a Feature Branch)
+> **See also:** [Section 8.9: Day-to-Day Workflow Using Fabric Git Integration](#89-day-to-day-workflow-using-fabric-git-integration) for the equivalent flow performed from within a Fabric workspace using Branch out, commit, and update.
 
 1. **Identify the work item** - In Azure DevOps, create or find the work item (User Story, Task, Bug) for the change.
 2. **Create a feature branch from main** - In Azure DevOps Repos or via Git CLI:
@@ -309,7 +309,7 @@ Fabric's Git integration supports a growing list of items across different workl
 
 > The official and most up-to-date list of supported items is maintained at:
 >
-> **Microsoft Learn — [Overview of Fabric Git Integration](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration)**
+> **Microsoft Learn - [Overview of Fabric Git Integration](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration)**
 >
 > Additional resources:
 >
@@ -481,6 +481,22 @@ Before connecting a Fabric workspace to Azure DevOps, review the following platf
 - **IP Conditional Access policies:** If your tenant has an IP-based Conditional Access policy validated against the Fabric service, that policy will block Azure DevOps Git integration. The integration relies on service-to-service calls that do not originate from the user's IP. Exclude Fabric's Git integration scenarios from the policy or use an alternative control.
 - **Sovereign clouds:** Git integration is not supported in sovereign (national) clouds such as Government, China, or other regionalized Microsoft cloud environments. Customers in these environments must rely on alternative approaches (such as fabric-cicd with REST APIs) for source control.
 - **Git submodules:** Repositories that contain Git submodules are not supported. The repository connected to the Fabric workspace must be self-contained, with all required content tracked directly in the repository rather than through submodule references.
+
+### 8.9 Day-to-Day Workflow Using Fabric Git Integration
+
+This is the Fabric-centric equivalent of [Section 3](#section-3-day-to-day-git-workflow---detailed-steps). Use this flow when most of your development happens inside the Fabric UI (notebooks, pipelines, semantic models, reports) rather than locally. The pattern relies on **branched workspaces** so that each developer has an isolated runtime tied to their feature branch.
+
+1. **Start new work - branch out to a feature workspace.** From the shared Dev workspace, open the Source Control panel and select **Branch out** (see [§8.4](#84-branching-out-from-fabric-branched-workspaces)). Create or choose a `feature/{descriptive-name}` branch and use Selective Branching to include only the items you need. Fabric provisions a new workspace connected to that branch.
+2. **Make changes in the branched workspace.** Edit notebooks, pipelines, reports, or other items directly in the Fabric UI of the branched workspace. The shared Dev workspace is unaffected while you work.
+3. **(Optional) Compare changes before committing.** Use **Compare Code Changes** (see [§8.5](#85-comparing-code-changes)) to review the diff between your workspace state and the feature branch in Git.
+4. **Commit from Fabric.** Open the Source Control panel, select the changed items, write a descriptive commit message, and click **Commit** (see [§8.2](#82-committing-changes-from-fabric)). Your changes are pushed to the feature branch in Azure DevOps.
+5. **Sync the latest main into your feature branch (if needed).** If other PRs have merged to main while you were working, merge `origin/main` into your feature branch in Azure DevOps (or via CLI as in [§3.6](#36-updating-other-in-progress-feature-branches)). Then in your branched workspace, use the **Updates** tab to pull the merged changes into Fabric and resolve any conflicts (see [§8.3](#83-updating-workspace-from-git) and [§8.6](#86-conflict-resolution)).
+6. **Open a Pull Request in Azure DevOps.** Switch to Azure DevOps Repos and create a PR from your feature branch into main, following the policies in [§3.3](#33-creating-a-pull-request-in-azure-devops). Code review and approval happen in Azure DevOps, not in Fabric.
+7. **Merge to main.** Complete the PR (squash merge recommended). The feature branch is now integrated.
+8. **Update the shared Dev workspace from Git.** Switch to the shared Dev workspace, open the Source Control panel, go to the **Updates** tab, and click **Update All** (see [§8.3](#83-updating-workspace-from-git)). The merged changes now appear in the Dev runtime. Publish any items that require it (for example, Environments).
+9. **Clean up.** Delete the branched workspace and the feature branch once the changes are live in Dev. Promote to Test and Prod via Deployment Pipelines ([§9.1](#91-dev--test--prod-promotion)).
+
+**Tip:** Treat the branched workspace as disposable - one workspace per feature branch, deleted after merge. This keeps the shared Dev workspace stable and avoids the override and conflict issues described in [§8.4](#84-branching-out-from-fabric-branched-workspaces).
 
 ## Section 9: Promoting Changes - Fabric Deployment Pipelines
 

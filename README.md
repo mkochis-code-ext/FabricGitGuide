@@ -54,7 +54,7 @@ Key principles:
 ### 2.2 Feature Branch Workflow Diagram
 
 <!-- IMAGE PLACEHOLDER 1: Feature Branch Workflow Diagram -->
-![Feature Branch Workflow Diagram](images/feature-branch-workflow.svg)
+![Feature Branch Workflow Diagram](Images/Feature-Branch-Workflow.svg)
 
 *Developers create feature branches from main and work concurrently. The first branch to complete opens a Pull Request and merges to main. Remaining active branches must merge the updated main into their branch (`git merge main` or `git rebase main`) before opening their own Pull Request. This ensures each PR is based on the latest code and conflicts are resolved before review. Once merged, the Dev workspace syncs and changes flow through Deployment Pipelines to Test and Prod.*
 
@@ -340,7 +340,7 @@ Environments:
 | Blood Utilization | Visualization and reporting for Blood Utilization | Blood Utilization - Dev - workspace | Blood Utilization - Test - workspace | Blood Utilization - Prod - workspace |
 | OR Scheduling | Visualization and reporting for OR Scheduling | OR Scheduling - Dev - workspace | OR Scheduling - Test - workspace | OR Scheduling - Prod - workspace |
 
-![Workspace Environment Architecture and Repository Strategy](images/workspace-environment-architecture.svg)
+![Workspace Environment Architecture and Repository Strategy](Images/Workspace-Environment-Architecture.svg)
 
 *Figure 2: Workspace Environment Architecture and Repository Strategy*
 
@@ -353,7 +353,7 @@ In this architecture, workspaces serve different purposes:
 - **Visualization Workspaces** (e.g., "Blood Utilization", "OR Scheduling"): Contain Power BI reports, semantic models, and dashboards that consume data from one or both shared data workspaces. These may have a 1:1 or many:1 relationship with data workspaces depending on scope. For example, Blood Utilization may consume data from both Epic - shared and SQL - Shared, creating a many-to-one data consumption pattern.
 
 <!-- IMAGE PLACEHOLDER 3: Data vs. Visualization Workspace Relationships -->
-![Data vs. Visualization Workspace Relationships](images/fabric-workspace-relationships.svg)
+![Data vs. Visualization Workspace Relationships](Images/Fabric-Workspace-Relationships.svg)
 
 *Figure 3: Data vs. Visualization Workspace Relationships*
 
@@ -383,7 +383,7 @@ The critical rule is that the data repository must be committed, reviewed, and m
 7. **Merge the visualization PR last** - Once validated, merge the visualization branch into main and promote environments in dependency order, ensuring shared data assets are deployed before dependent visualization assets.
 
 <!-- IMAGE PLACEHOLDER 4: Branch Workflow by Repository Pattern -->
-![Branch Workflow by Repository Pattern](images/Branch-Workflow-by-Repo-Pattern.svg)
+![Branch Workflow by Repository Pattern](Images/Branch-Workflow-by-Repo-Pattern.svg)
 
 *Figure 4: Branch Workflow by Repository Pattern*
 
